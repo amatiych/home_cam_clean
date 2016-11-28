@@ -77,11 +77,8 @@ def capture_picture(name, scale):
         stream.seek(0)
         with picamera.PiCamera(resolution=(w,h)) as camera:
 
-                camera.start_preview()
-                #camera.exposure_mode  ='night'
                 camera.annotate_text = name +' ' + time.ctime()
                 camera.vflip = False
-                time.sleep(1)
                 camera.annotate_text_size = int(20 * scale)
                 camera.capture(stream,format="png")
 
